@@ -5,7 +5,7 @@ import os
 
 DEBUG = False
 
- class ProcessHistOccupancyData(object):
+class ProcessHistOccupancyData(object):
 
     def __init__(self, file_name):
         self.file_name = file_name
@@ -20,7 +20,7 @@ DEBUG = False
             exit()
         else:
             r.raw.decode_content = True
-            with open(os.path.join("..//Step 3 - Data Collection//",downloaded_file_name), 'wb') as f:
+            with open(downloaded_file_name, 'wb') as f:
                 shutil.copyfileobj(r.raw, f)
             print(downloaded_file_name+ " successfully downloaded")
 
