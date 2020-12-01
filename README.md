@@ -11,3 +11,4 @@ Project Folder | Description | Done
 **[Banking System Mini Project](Banking%20System%20Mini%20Project)** | Building a Banking System using OOP concepts of Python | :heavy_check_mark:
 **[Data Modelling Exercise](Data%20Modelling%20Exercise)** | Data Modelling exercise | :heavy_check_mark:
 **[Step 3 - Data Collection](Step%203%20-%20Data%20Collection)** | Designed a Data collection process using Python for Seattle Parking Occupancy Project | :heavy_check_mark:
+**[EuroCup SQL Mini Project](EuroCup%20SQL%20Mini%20%Project)** | SQL query solution to answer the questions on EuroCup 2016 data | :heavy_check_mark:
