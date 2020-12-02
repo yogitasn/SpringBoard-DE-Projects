@@ -1,10 +1,8 @@
+USE euro_cup_2016;
 /*. Write a SQL query to find the number of captains who were also goalkeepers*/
 
-SELECT mt_cpt.team_id,
-	   count(mt_cpt.player_captain) 
-       FROM match_captain as mt_cpt
-	   JOIN player_mast as pl_mt
-	   ON mt_cpt.team_id=pl_mt.team_id
-WHERE pl_mt.posi_to_play='GK'
-GROUP BY 1
-ORDER BY 2 DESC LIMIT 1;
+SELECT count(*) as "No_Of_GK_Captains"
+FROM player_mast as pm
+JOIN match_captain as mc
+ON pm.player_id=mc.player_captain
+WHERE pm.posi_to_play='GK'

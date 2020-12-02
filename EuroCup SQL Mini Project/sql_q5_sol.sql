@@ -7,5 +7,5 @@ SELECT
 FROM player_booked as p
      JOIN match_mast as m
 	 ON p.match_no=m.match_no
-WHERE p.booking_time=m.stop1_sec OR p.booking_time=m.stop1_sec
-GROUP by p.match_no;
+WHERE p.booking_time=m.stop1_sec or p.booking_time=m.stop2_sec
+GROUP BY 1;

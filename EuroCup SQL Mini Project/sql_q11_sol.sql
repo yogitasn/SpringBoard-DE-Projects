@@ -1,3 +1,4 @@
+USE euro_cup_2016;
 /*Write a SQL query to find the players, their jersey number, and playing club who
 were the goalkeepers for England in EURO Cup 2016*/
 
