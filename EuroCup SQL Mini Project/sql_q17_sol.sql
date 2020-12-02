@@ -12,4 +12,4 @@ FROM soccer_country as sc
 			GROUP BY 1
 			ORDER BY 2 DESC 
 			LIMIT 1) as s
-       ON sc.country_id=s.country_id;
+ON sc.country_id=s.country_id;

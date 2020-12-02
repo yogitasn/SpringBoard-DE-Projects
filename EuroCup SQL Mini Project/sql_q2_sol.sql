@@ -6,4 +6,4 @@ SELECT
 FROM penalty_shootout p
 	JOIN match_mast m
     ON p.match_no=m.match_no
-WHERE m.results='WIN';
+	WHERE m.results='WIN';
