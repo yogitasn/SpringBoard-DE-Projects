@@ -27,55 +27,73 @@ Checked for datatypes of columns and null values
 
 Final Occupancy Fact Table should look like This
 
-![Alt text](ParkingOccupancyFirstFewRecs.PNG?raw=true "Parking Occupancy")
+![Alt text](FinalOccupancyFactTable.PNG?raw=true "Parking Occupancy")
 
 Final Occupancy DateTime should look like This
-![Alt text](ParkingOccupancyFirstFewRecs.PNG?raw=true "Parking Occupancy")
+
+![Alt text](OccupancyDateTimeDimensionTable.PNG?raw=true "Parking Occupancy")
+
+BlockFace dataset
+Displays blockfaces for all segments of the street network. Identifies the elements of the block, such as peak hour restrictions, length of the block, parking categories, and restricted parking zones.
+
+![Alt text](BlockfaceDataset.PNG?raw=true "Parking Occupancy")
+
+* Remove unwanted columns
+* Rename columns name
+
+Final BlockFace Schema should look like This
+
+![Alt text](BlockFaceDimensionTable.PNG?raw=true "Parking Occupancy")
+
+## Data Storage
+### There are three processed files
+
+<ol>
+<li>Paid Parking Occupancy 2020-18GB</li>
+<li>Blockface-8MB</li>
+<li>Paid Parking Transaction-11MB</li>
+</ol>
+
+### There are three ways to store the processed data
+
+<ol>
+<li>CSV</li>
+<li>Parquet</li>
+<li>Avro</li>
+</ol>
+
+### The Paid Parking occupancy data generated for 2020 is less i.e. 18 GB (137M rows) is likely due to travel restrictions from the ongoing pandemic. The previous year 2019 data was on higher side i.e. 45GB(286M)
+> CSV works well for a small data set of 70,000 lines. However, what if you need to increase to 2 million records? What if each record has nested properties? While CSV files are simple and human-readable, they unfortunately do not scale well. As the file size grows, load times become impractical, and reads cannot be optimized. Their primitive nature allows them to be a great option for smaller data sets, as shown above, but very inconvenient for managing larger sets of data. This is where both Parquet and Avro come in.
 
 
+### Apache Parquet
+
+>"Apache Parquet is a free and open-source column-oriented data storage format of the Apache Hadoop ecosystem. It is similar to the other columnar-storage file formats available in Hadoop namely RCFile and ORC. It provides efficient data compression and encoding schemes with enhanced performance to handle complex data in bulk."
+
+<ul>
+<li>Since it’s a column based format, it’s better to use when you only need to access specific fields</li>
+<li>Each data file contains the values for a set of rows</li>
+<li>Can’t be written from streaming data since it needs to wait for blocks to get finished. However, this will work using micro-batch (eg Apache Spark).
+</li>
+<li>Suitable for data exploration — read intensive, complex or analytical querying, low latency data</li>
+</ul>
 
 
-## DataModel
-![Alt text](/screenshot/datamodel/DataModel.PNG?raw=true "Data Model")
+### Apache Avro
 
-## Technologies
-Project is created with:
-* MySQL Database
-* Flask-SQLALchemy
-* Flask (Only Backend)
-* PyMySQL (Python library connector to communicate with MYSQL )
+> Apache Avro is a remote procedure call and data serialization framework developed within Apache’s Hadoop project. It uses JSON for defining data types and protocols, and serializes data in a compact binary format.
 
+<ul>
+<li>Since it’s a row based format, it’s better to use when all fields needs to be accessed</li>
+<li>Files support block compression and are splittable</li>
+<li>Can be written from streaming data (eg Apache Flink)</li>
+<li>Suitable for write intensive operation</li>
+</ul>
 
-## Setup
+### Data Storage Format Conclusion
 
-Run the following SQL command  
-
-```
-create database <DB_NAME>
-
-```
-To update the configuration file 'database.cfg' with your database credentials and DB name created in above step.
-
-```
-[DATABASE]
-DB_USER=
-DB_PASSWORD=
-DB_PORT=
-DATABASE=<DB_NAME>
-
-```
-
-## Execution
-
-Navigate to project folder and execute the following commands
-
-Using Python 3.7+, run `pip3 install -r requirements.txt` to install the dependencies.
-
-Execute Commands:
-
-* `flask initdb`
-* `flask bootstrap`
+### For Seattle Parking Occupancy project Apache Parquet is better suited for data storage as we deal with immutable data and analytics queries, for which columnar storage is optimal.
 
 
-## References
-[Flask SQLALchemy](https://flask-sqlalchemy.palletsprojects.com/en/2.x/)
+## ERDiagram
+![Alt text](SeattleParkingOccupancyERDiagram.PNG?raw=true "Data Model")
