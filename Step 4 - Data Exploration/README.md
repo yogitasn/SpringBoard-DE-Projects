@@ -15,14 +15,15 @@ Street Parking Occupancy data (Processed data-Last 48 hours)
 [Data Source Link](https://data.seattle.gov/Transportation/Paid-Parking-Last-48-Hours-/hiyf-7edq)
 
 
+## First Few Records
 ![Alt text](ParkingOccupancyFirstFewRecs.PNG?raw=true "Parking Occupancy")
 
 
 Below are some of the observations on EDA of the Dataset
 
-* 'PaidParkingSubArea' have blank values as every Parking Area doesn't have a sub-area
-* 'PaidParkingRate' have null values and can be dropped as this information will be captured via Blockface dataset
-* There are some Blank and out of range values like '4320' in the 'ParkingTimeLimitCategory' column. These values match with the Blockface column data.
+* 'PaidParkingSubArea' column has blank values as every Parking Area doesn't have a sub-area
+* 'PaidParkingRate' column has null values and can be dropped as this information will be captured via Blockface dataset
+* There are some blank and out of range values like '4320' in the 'ParkingTimeLimitCategory' column. These values match with the master Blockface dataset column and hence can be ignored.
 * Column name rename 'SourceElementKey'-> 'Station_ID','PaidOccupancy'>'Occupied_Spots','ParkingSpaceCount'>'Available_Spots'
 * Remove the comma from the rows in the column 'Station_ID'
 * Create the OccupancyTimeData Dimension Table using OccupancyDateTime and derive the additional columns such as 'month', 'day of the week', 'hour' using Pyspark to get the monthly, daily, hourly trends
@@ -40,7 +41,11 @@ Below is final Occupancy DateTime Dimension Table Schema:
 Displays block faces for all segments of the street network. Identifies the elements of the block, such as peak hour restrictions, length of the block, parking categories, and restricted parking zones.
 [Data Source Link](https://data-seattlecitygis.opendata.arcgis.com/datasets/a1458ad1abca41869b81f7c0db0cd777_0)
 
+## First Few Records
 ![Alt text](BlockfaceDataset.PNG?raw=true "BlockFace")
+
+
+Below are some of the observations on EDA of the dataset
 
 * Remove unwanted columns
 * Rename columns name
@@ -100,7 +105,7 @@ Final BlockFace Schema:
 ### For the Seattle Parking Occupancy project Apache Parquet is better suited for data storage as we deal with immutable data and analytics queries, for which columnar storage is optimal.
 
 
-##ER Diagram
+## ER Diagram
 Below is final ER Diagram
 
 ![Alt text](SeattleParkingOccupancyERDiagram.PNG?raw=true "ERDiagram")
