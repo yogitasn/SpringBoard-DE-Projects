@@ -9,9 +9,9 @@
 This project is Data Exploration of the open-ended Data Engineering Project: Seattle Parking Occupancy
 
 ## Description
-The original dataset is 18GB in size and hence a smaller subset of the data was downloaded and analyzed for this Project
+The original dataset is 18GB in size and hence a smaller subset(last 48 hours) of the data was downloaded and analyzed for this Project
 
-Street Parking Occupancy data (Processed data-Last 48 hours)
+Street Parking Occupancy data
 [Data Source Link](https://data.seattle.gov/Transportation/Paid-Parking-Last-48-Hours-/hiyf-7edq)
 
 
@@ -39,6 +39,7 @@ Below is final Occupancy DateTime Dimension Table Schema:
 
 ### BlockFace Dataset
 Displays block faces for all segments of the street network. Identifies the elements of the block, such as peak hour restrictions, length of the block, parking categories, and restricted parking zones.
+
 [Data Source Link](https://data-seattlecitygis.opendata.arcgis.com/datasets/a1458ad1abca41869b81f7c0db0cd777_0)
 
 ## First Few Records
@@ -73,7 +74,7 @@ Final BlockFace Schema:
 </ol>
 
 ### The Paid Parking occupancy data generated for 2020 is lesser than the previous year i.e. 18 GB (137M rows) is likely due to travel restrictions from the ongoing pandemic. The previous year 2019 data was on the higher side i.e. 45GB(286M)
-> CSV works well for a small data set of 70,000 lines. However, what if you need to increase to 2 million records? What if each record has nested properties? While CSV files are simple and human-readable, they, unfortunately, do not scale well. As the file size grows, load times become impractical, and reads cannot be optimized. Their primitive nature allows them to be a great option for smaller data sets, as shown above, but very inconvenient for managing larger sets of data. This is where both Parquet and Avro come in.
+> CSV works well for a small data set of 70,000 lines. However, what if you need to increase to 2 million records? What if each record has nested properties? While CSV files are simple and human-readable, they, unfortunately, do not scale well. As the file size grows, load times become impractical, and reads cannot be optimized. Their primitive nature allows them to be a great option for smaller data sets, but very inconvenient for managing larger sets of data. This is where both Parquet and Avro come in.
 
 
 ### Apache Parquet
@@ -102,7 +103,7 @@ Final BlockFace Schema:
 
 ### Data Storage Format Conclusion
 
-### For the Seattle Parking Occupancy project Apache Parquet is better suited for data storage as we deal with immutable data and analytics queries, for which columnar storage is optimal.
+### For the Seattle Parking Occupancy project 'Apache Parquet' is better suited for data storage as we deal with immutable data and analytical queries, for which columnar storage is optimal.
 
 
 ## ER Diagram
