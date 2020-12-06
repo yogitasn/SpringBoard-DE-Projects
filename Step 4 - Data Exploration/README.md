@@ -8,15 +8,15 @@
 ## General Info
 This project is Data Exploration of the open-ended Data Engineering Project: Seattle Parking Occupancy
 
-## Description
+## Exploratory Data Analysis
 The original dataset is 18GB in size and hence a smaller subset(last 48 hours) of the data was downloaded and analyzed for this Project
 
 Street Parking Occupancy data
 [Data Source Link](https://data.seattle.gov/Transportation/Paid-Parking-Last-48-Hours-/hiyf-7edq)
 
 
-## First Few Records
-![Alt text](ParkingOccupancyFirstFewRecs.PNG?raw=true "Parking Occupancy")
+* First Few Records
+![Alt text](/images/ParkingOccupancyFirstFewRecs.PNG?raw=true "Parking Occupancy")
 
 
 Below are some of the observations on EDA of the Dataset
@@ -31,19 +31,19 @@ Below are some of the observations on EDA of the Dataset
 
 Below is final Occupancy Fact Table Schema:
 
-![Alt text](FinalOccupancyFactTable.PNG?raw=true "Parking Occupancy")
+![Alt text](/images/FinalOccupancyFactTable.PNG?raw=true "Parking Occupancy")
 
 Below is final Occupancy DateTime Dimension Table Schema:
 
-![Alt text](OccupancyDateTimeDimensionTable.PNG?raw=true "DateTime")
+![Alt text](/images/OccupancyDateTimeDimensionTable.PNG?raw=true "DateTime")
 
 ### BlockFace Dataset
 Displays block faces for all segments of the street network. Identifies the elements of the block, such as peak hour restrictions, length of the block, parking categories, and restricted parking zones.
 
 [Data Source Link](https://data-seattlecitygis.opendata.arcgis.com/datasets/a1458ad1abca41869b81f7c0db0cd777_0)
 
-## First Few Records
-![Alt text](BlockfaceDataset.PNG?raw=true "BlockFace")
+* First Few Records
+![Alt text](/images/BlockfaceDataset.PNG?raw=true "BlockFace")
 
 
 Below are some of the observations on EDA of the dataset
@@ -55,7 +55,7 @@ Below are some of the observations on EDA of the dataset
 
 Final BlockFace Schema:
 
-![Alt text](BlockFaceDimensionTable.PNG?raw=true "BlockFace")
+![Alt text](/images/BlockFaceDimensionTable.PNG?raw=true "BlockFace")
 
 ## Data Storage
 ### There are three processed files
@@ -109,4 +109,4 @@ Final BlockFace Schema:
 ## ER Diagram
 Below is final ER Diagram
 
-![Alt text](SeattleParkingOccupancyERDiagram.PNG?raw=true "ERDiagram")
+![Alt text](/images/SeattleParkingOccupancyERDiagram.PNG?raw=true "ERDiagram")
