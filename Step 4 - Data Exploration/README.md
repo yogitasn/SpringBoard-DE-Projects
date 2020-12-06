@@ -31,11 +31,11 @@ Below are some of the observations on EDA of the Dataset
 
 Below is final Occupancy Fact Table Schema:
 
-![Alt text](/images/FinalOccupancyFactTable.PNG?raw=true "Parking Occupancy")
+![Alt text](./images/FinalOccupancyFactTable.PNG?raw=true "Parking Occupancy")
 
 Below is final Occupancy DateTime Dimension Table Schema:
 
-![Alt text](/images/OccupancyDateTimeDimensionTable.PNG?raw=true "DateTime")
+![Alt text](./images/OccupancyDateTimeDimensionTable.PNG?raw=true "DateTime")
 
 ### BlockFace Dataset
 Displays block faces for all segments of the street network. Identifies the elements of the block, such as peak hour restrictions, length of the block, parking categories, and restricted parking zones.
