@@ -16,7 +16,7 @@ Street Parking Occupancy data
 
 
 * First Few Records
-![Alt text](/images/ParkingOccupancyFirstFewRecs.PNG?raw=true "Parking Occupancy")
+![Alt text](./images/ParkingOccupancyFirstFewRecs.PNG?raw=true "Parking Occupancy")
 
 
 Below are some of the observations on EDA of the Dataset
@@ -24,10 +24,10 @@ Below are some of the observations on EDA of the Dataset
 * 'PaidParkingSubArea' column has blank values as every Parking Area doesn't have a sub-area
 * 'PaidParkingRate' column has null values and can be dropped as this information will be captured via Blockface dataset
 * There are some blank and out of range values like '4320' in the 'ParkingTimeLimitCategory' column. These values match with the master Blockface dataset column and hence can be ignored.
-* Column name rename 'SourceElementKey'-> 'Station_ID','PaidOccupancy'>'Occupied_Spots','ParkingSpaceCount'>'Available_Spots'
-* Remove the comma from the rows in the column 'Station_ID'
+* Column name to be renamed as follows: 'SourceElementKey'-> 'Station_ID','PaidOccupancy'>'Occupied_Spots','ParkingSpaceCount'>'Available_Spots'
+* To remove the comma from the rows in the column 'Station_ID'
 * Create the OccupancyTimeData Dimension Table using OccupancyDateTime and derive the additional columns such as 'month', 'day of the week', 'hour' using Pyspark to get the monthly, daily, hourly trends
-* Drop unwanted columns
+* Drop redundant columns
 
 Below is final Occupancy Fact Table Schema:
 
@@ -43,19 +43,19 @@ Displays block faces for all segments of the street network. Identifies the elem
 [Data Source Link](https://data-seattlecitygis.opendata.arcgis.com/datasets/a1458ad1abca41869b81f7c0db0cd777_0)
 
 * First Few Records
-![Alt text](/images/BlockfaceDataset.PNG?raw=true "BlockFace")
+![Alt text](./images/BlockfaceDataset.PNG?raw=true "BlockFace")
 
 
 Below are some of the observations on EDA of the dataset
 
-* Remove unwanted columns
+* Remove redundant columns
 * Rename columns name
 * Station_ID in Parking Occupancy Table matches with Station_ID in Blockface.
 * Blockface has additional details about the block such as peak hour restrictions, length of the block, parking categories, and restricted parking zones.
 
 Final BlockFace Schema:
 
-![Alt text](/images/BlockFaceDimensionTable.PNG?raw=true "BlockFace")
+![Alt text](./images/BlockFaceDimensionTable.PNG?raw=true "BlockFace")
 
 ## Data Storage
 ### There are three processed files
@@ -109,4 +109,4 @@ Final BlockFace Schema:
 ## ER Diagram
 Below is final ER Diagram
 
-![Alt text](/images/SeattleParkingOccupancyERDiagram.PNG?raw=true "ERDiagram")
+![Alt text](./images/SeattleParkingOccupancyERDiagram.PNG?raw=true "ERDiagram")
