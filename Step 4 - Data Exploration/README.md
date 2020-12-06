@@ -50,6 +50,7 @@ Below are some of the observations on EDA of the dataset
 
 * Remove redundant columns
 * Rename columns name
+* There are blank values for certain columns like WKD_RATE3/WKDSTART3/WKDEND3/SAT_RATE1 as there could be no parking permitted during that time period in those areas
 * Station_ID in Parking Occupancy Table matches with Station_ID in Blockface.
 * Blockface has additional details about the block such as peak hour restrictions, length of the block, parking categories, and restricted parking zones.
 
@@ -58,7 +59,7 @@ Final BlockFace Schema:
 ![Alt text](./images/BlockFaceDimensionTable.PNG?raw=true "BlockFace")
 
 ## Data Storage
-### There are three processed files
+### Below are the processed files
 
 <ol>
 <li>Paid Parking Occupancy 2020-18GB</li>
