@@ -12,27 +12,22 @@ SET @v8 = 'MAT';
 
 -- 4. List the names of students who have taken a course taught by professor v5 (name).
 
-SELECT name FROM Student,
-	(SELECT studId FROM Transcript,
-		(SELECT crsCode, semester FROM Professor
-			JOIN Teaching
+/* SELECT name FROM Student,
+	   (SELECT studId FROM Transcript,
+	   (SELECT crsCode, semester FROM Professor
+		JOIN Teaching
 			WHERE Professor.name = @v5 AND Professor.id = Teaching.profId) as alias1
-	WHERE Transcript.crsCode = alias1.crsCode AND Transcript.semester = alias1.semester) as alias2
-WHERE Student.id = alias2.studId;
+	 WHERE Transcript.crsCode = alias1.crsCode AND Transcript.semester = alias1.semester) as alias2
+ WHERE Student.id = alias2.studId;
+*/
 
-WITH CTE AS (
-	SELECT crsCode, semester FROM Professor
-	JOIN Teaching
-	WHERE Professor.name = @v5 AND Professor.id = Teaching.profId
-
-)
-
-SELECT name
-FROM Student as s
-JOIN Transcript as t
-ON s.id=t.studId
-JOIN CTE as c
-ON t.crsCode=c.crsCode
-AND t.semester=c.semester
-
-
+-- Using Joins over correlated subquery for better performance 
+SELECT Student.name FROM Student
+       JOIN Transcript
+           ON Student.id=Transcript.studId
+       JOIN Teaching 
+           ON Teaching.CrsCode = Transcript.CrsCode 
+           AND Teaching.Semester = Transcript.Semester
+	   JOIN Professor
+		   ON Professor.Id = Teaching.ProfId
+WHERE Professor.Name = @v5;

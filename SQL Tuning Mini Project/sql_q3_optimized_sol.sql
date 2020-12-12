@@ -11,11 +11,11 @@ SET @v7 = 'EE';
 SET @v8 = 'MAT';
 
 -- 3. List the names of students who have taken course v4 (crsCode).
-SELECT name FROM Student WHERE id IN (SELECT studId FROM Transcript WHERE crsCode = @v4);
+-- Old Query
+-- SELECT name FROM Student WHERE id IN (SELECT studId FROM Transcript WHERE crsCode = @v4);
 
-
-
-SELECT name FROM Student as s
-INNER JOIN Transcript as t
-ON s.id=t.studId
+-- Using Joins lowered the execution time and the Query cost from 3.55 to 2.15 as it eliminated the Full Table scan for the 'Transcript' Table
+SELECT Student.name FROM Student
+      INNER JOIN Transcript
+         ON Student.id=Transcript.studId
 WHERE crsCode=@v4;
