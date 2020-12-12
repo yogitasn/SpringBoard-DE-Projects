@@ -13,3 +13,4 @@ Project Folder | Description | Done
 **[Step 3 - Data Collection](Step%203%20-%20Data%20Collection)** | Designed a Data collection process using Python for Seattle Parking Occupancy Project | :heavy_check_mark:
 **[EuroCup SQL Mini Project](EuroCup%20SQL%20Mini%20%Project)** | SQL query solution to answer the questions on EuroCup 2016 data | :heavy_check_mark:
 **[Step 4 - Data Exploration](Step%204%20-%20Data%20Exploration)** | Data Exploration of Seattle Parking Occupancy Project | :heavy_check_mark:
+**[SQL Tuning Mini Project](SQL%20Tuning%20Mini%20Project)** | Solution for the SQL Tuning Mini Project | :heavy_check_mark:
