@@ -1,0 +1,52 @@
+from collections import deque
+
+q1=deque()
+
+num=int(input())
+
+for i in range(num):
+    value=input()
+    if int(value.split(' ')[0])==1:
+        q1.append(int(value.split(' ')[1]))
+        #print(q1)
+    elif int(value)==2:
+        q1.popleft()
+       # print(q1)
+    elif int(value)==3:
+         print(q1[0])
+
+
+Better solution with two stacks
+
+q1=deque()
+
+q2=deque()
+
+num=int(input())
+
+for i in range(num):
+    value=input()
+    if int(value.split(' ')[0])==1:
+        q1.append(int(value.split(' ')[1]))
+        #print(q1)
+    elif int(value)==2:
+        if not q2:
+            while q1:
+                q2.append(q1.pop())
+        q2.pop()
+    elif int(value)==3:
+         print(q2[-1] if q2 else q1[0])
+
+
+Better solution with two stacks
+old, new = [], []
+for _ in range(int(input())):
+    val = list(map(int,input().split()))
+    if val[0] == 1:
+        new.append(val[1])
+    elif val[0] == 2:
+        if not old :
+            while new : old.append(new.pop())
+        old.pop()
+    else:
+        print(old[-1] if old else new[0])

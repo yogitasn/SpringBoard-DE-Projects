@@ -27,6 +27,8 @@ Below are some of the observations on EDA of the Dataset
 * Column name to be renamed as follows: 'SourceElementKey'-> 'Station_ID','PaidOccupancy'>'Occupied_Spots','ParkingSpaceCount'>'Available_Spots'
 * To remove the comma from the rows in the column 'Station_ID'
 * Create the OccupancyTimeData Dimension Table using OccupancyDateTime and derive the additional columns such as 'month', 'day of the week', 'hour' using Pyspark to get the monthly, daily, hourly trends
+* The Location column can be extracted to get the Latitude and Longitude values of a Location
+* Geocoders Library can be used to further extract address,zipcode from Lat/Long column values.
 * Drop redundant columns
 
 Below is final Occupancy Fact Table Schema:
