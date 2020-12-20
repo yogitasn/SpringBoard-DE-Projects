@@ -9,3 +9,11 @@ JOIN player_booked as pb
      ON m.match_no=pb.match_no
 GROUP BY 1
 ORDER BY 2 DESC;
+
+SELECT m.referee_id,
+       count(*) 
+       FROM match_mast as m
+JOIN player_booked as pb
+     ON m.match_no=pb.match_no
+GROUP BY 1
+ORDER BY 2 DESC;
