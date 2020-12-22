@@ -18,3 +18,19 @@ from player_mast as p
 WHERE p.posi_to_play='FD'
 GROUP BY 1,2
 ORDER BY 3 DESC;
+
+
+select p.player_id,
+       p.age,
+       p.player_name,
+       p.jersey_no,
+       count(*)
+from player_mast as p
+     JOIN goal_details as g
+     ON p.player_id=g.player_id
+WHERE p.posi_to_play='DF'
+OR p.posi_to_play='FD'
+GROUP BY 1
+HAVING count(*)>0;
+
+select * from goal_details;

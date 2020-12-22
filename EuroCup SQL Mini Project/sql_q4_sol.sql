@@ -16,3 +16,4 @@ FROM match_mast as mm
 			WHERE p.in_out='O'
 			GROUP BY 1) as s
 	  ON s.match_no=mm.match_no;
+      
