@@ -11,6 +11,8 @@ use euro_cup_2016;
 -- WHERE p.booking_time=m.stop1_sec or p.booking_time=m.stop2_sec
 -- GROUP BY 1;
 
+/* Simplified solution using 'play_schedule' column*/
+
 SELECT count(*) as "no_of_bookings" 
 FROM player_booked
 WHERE play_schedule='ST';

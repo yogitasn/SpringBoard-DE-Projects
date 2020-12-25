@@ -20,15 +20,16 @@ GROUP BY 1,2
 ORDER BY 3 DESC;
 */
 
-select p.player_id,
+/* Removed Union and included results of Defenders who scored a goal for their teams */
+SELECT p.player_id,
        p.age,
        p.player_name,
        p.jersey_no,
-       count(*)
-from player_mast as p
+       count(*) as "no_of_goals"
+FROM player_mast as p
      JOIN goal_details as g
-     ON p.player_id=g.player_id
-WHERE p.posi_to_play='DF'
-OR p.posi_to_play='FD'
+      ON p.player_id=g.player_id
+WHERE p.posi_to_play IN('DF','FD')
 GROUP BY 1
 HAVING count(*)=1;
+

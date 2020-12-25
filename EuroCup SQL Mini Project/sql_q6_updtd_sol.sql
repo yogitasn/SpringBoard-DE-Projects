@@ -9,6 +9,8 @@ do not include matches decided by penalty shootout.*/
 -- AND goal_score LIKE '%1%'
 -- AND results='WIN';
 
+/* Simplified solution using table 'match_details'*/
+
 SELECT 
      count(*) as "matches_won_by_single_point"
 FROM match_details
