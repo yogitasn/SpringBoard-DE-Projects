@@ -20,7 +20,7 @@ GROUP BY 1,2
 ORDER BY 3 DESC;
 */
 
-/* Removed Union and included results of Defenders who scored a goal for their teams */
+/* Removed Union and modified the query to get results of Defenders who scored a goal for their teams */
 SELECT p.player_id,
        p.age,
        p.player_name,
