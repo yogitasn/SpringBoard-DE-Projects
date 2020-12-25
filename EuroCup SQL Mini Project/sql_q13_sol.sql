@@ -1,7 +1,7 @@
 USE euro_cup_2016;
 /*Write a SQL query to find all the defenders who scored a goal for their teams.*/
 
-select p.player_id,
+/*select p.player_id,
        p.posi_to_play,
        count(*)
 from player_mast as p
@@ -18,7 +18,7 @@ from player_mast as p
 WHERE p.posi_to_play='FD'
 GROUP BY 1,2
 ORDER BY 3 DESC;
-
+*/
 
 select p.player_id,
        p.age,
@@ -31,6 +31,4 @@ from player_mast as p
 WHERE p.posi_to_play='DF'
 OR p.posi_to_play='FD'
 GROUP BY 1
-HAVING count(*)>0;
-
-select * from goal_details;
+HAVING count(*)=1;
