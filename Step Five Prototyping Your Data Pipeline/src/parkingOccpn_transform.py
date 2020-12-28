@@ -29,9 +29,13 @@ class ParkingOccupancyTransform:
         parking_occ_df = pd.\
                          read_csv(self._load_path + '/author.csv', header=True, mode='PERMISSIVE',inferSchema=True)
  
-        parking_occ_df[['POINT','Longitude','Latitude']]=parking_occ_df.\
-                                                         Location.str.split(" ",expand=True)
+        #parking_occ_df[['POINT','Longitude','Latitude']]=parking_occ_df.\
+         #                                                Location.str.split(" ",expand=True)
 
+        parking_occ_df['Longitude']=parking_occ_df.Location.map(lambda x: x.split(' ')[1])
+
+        parking_occ_df['Latitude']=parking_occ_df.Location.map(lambda x: x.split(' ')[2])
+        
         parking_occ_df['Latitude']=parking_occ_df.\
                                    Latitude.str.replace(')','')
 
@@ -60,9 +64,9 @@ class ParkingOccupancyTransform:
         
         occupancy_df['hour'] = pd.DatetimeIndex(df['OccupancyDateTime']).hour
 
-        parking_occ_df.to_parquet('parking_occ_df.parquet.gzip', compression='gzip')
+        parking_occ_df.to_csv('parking_occ_df_proc.csv')
 
-        occupancy_df.to_parquet('occupancy_df.parquet.gzip', compression='gzip')
+        occupancy_df.to_csv('occupancy_df.csv')
 
 
 
