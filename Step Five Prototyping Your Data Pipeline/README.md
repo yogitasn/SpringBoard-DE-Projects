@@ -52,11 +52,11 @@ Below are remaining files and their functions:
 
 * Historical Occupancy Table
 
-![Alt text](/screenshot/OccupancyData.PNG?raw=true "Historical Occupancy Table")
+![Alt text](screenshot/OccupancyData.PNG?raw=true "Historical Occupancy Table")
 
 * Historical Occupancy Table Record Count
 
-![Alt text](/screenshot/OccupancyRecCnt.PNG?raw=true "Historical Occupancy Table Count")
+![Alt text](screenshot/OccupancyRecCnt.PNG?raw=true "Historical Occupancy Table Count")
 
 * Blockface Table
 
