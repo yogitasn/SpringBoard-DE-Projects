@@ -14,3 +14,5 @@ Project Folder | Description | Done
 **[EuroCup SQL Mini Project](EuroCup%20SQL%20Mini%20%Project)** | SQL query solution to answer the questions on EuroCup 2016 data | :heavy_check_mark:
 **[Step 4 - Data Exploration](Step%204%20-%20Data%20Exploration)** | Data Exploration of Seattle Parking Occupancy Project | :heavy_check_mark:
 **[SQL Tuning Mini Project](SQL%20Tuning%20Mini%20Project)** | Solution for the SQL Tuning Mini Project | :heavy_check_mark:
+:heavy_check_mark:
+**[Step Five Prototyping Your Data Pipeline](Step%20Five%20Prototyping%20Your%20Data%20Pipeline)** | Prototype for Open Ended DE Project | :heavy_check_mark:
