@@ -32,7 +32,7 @@ python parkingOccpn_extract.py
 
 ```
 
-* Trasnformation and loading by executing the below python driver file.  Driver will load the staging (ParkingWarehouseDriver) and perform transformations and loading by calling ParkingOccupancyLoadTransform
+* Transformation and loading by executing the below python driver file.  Driver will load the staging tables(ParkingWarehouseDriver) and perform transformations and loading by calling ParkingOccupancyLoadTransform
 
 ```
 python parkingOccpn_driver.py
