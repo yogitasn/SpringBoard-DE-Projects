@@ -1,3 +1,7 @@
+import findspark
+findspark.init()
+findspark.find()
+import pyspark
 from pyspark.sql.types import StringType
 from pyspark.sql import functions as fn
 import parkingOccpn_udf
@@ -5,10 +9,7 @@ import logging
 import configparser
 from pathlib import Path
 import pandas as pd
-import findspark
-findspark.init()
-findspark.find()
-import pyspark
+
 findspark.find()
 from pyspark.sql import SparkSession
 from pyspark.sql.types import StructType,StructField, StringType, IntegerType ,LongType
@@ -16,6 +17,7 @@ from pyspark.sql.types import ArrayType, DoubleType, BooleanType
 from pyspark.sql.functions import col,array_contains
 from pyspark.sql import functions as F
 from pyspark.sql.types import DecimalType
+from warehouse.postgres import PostgresConnector
 
 logging.basicConfig(format='%(asctime)s :: %(levelname)s :: %(funcName)s :: %(lineno)d \
 :: %(message)s', level = logging.INFO)
@@ -26,15 +28,19 @@ config.read('..\config.cfg')
 class ParkingOccupancyTransform:
     """
     This class performs transformation operations on the dataset.
-    1. Transform timestamp format, clean text part, remove extra spaces etc.
-    2. Create a lookup dataframe which contains the id and the timestamp for the latest record.
-    3. Join this lookup data frame with original dataframe to get only the latest records from the dataset.
-    4. Save the dataset by repartitioning. Using gzip compression
+    1. Transform timestamp format, clean text part, remove extra spaces etc
+    2. Join this lookup data frame with original dataframe to get only the latest records from the dataset.
+    3. Load the transformed dataset into postgres table
     """
-
+    jardrv = "~/spark_drivers/postgresql-42.2.12.jar"
+        
     def __init__(self):
         self._load_path = config.get('BUCKET', 'WORKING_ZONE')
         self._save_path = config.get('BUCKET', 'PROCESSED_ZONE')
+        self.spark = SparkSession.builder.\
+                                  config('spark.driver.extraClassPath', "~/spark_drivers/postgresql-42.2.12.jar").\
+                                  getOrCreate()
+
 
     def transform_load_parking_occupancy(self):
         logging.debug("Inside transform parking occupancy dataset module")
@@ -55,7 +61,7 @@ class ParkingOccupancyTransform:
 
        
                 
-        occ_df = spark.read.format("csv") \
+        occ_df = self.spark.read.format("csv") \
                     .option("header", True) \
                     .schema(schema) \
                     .load(self._load_path+"2020_Paid_Parking.csv")
@@ -67,7 +73,7 @@ class ParkingOccupancyTransform:
                         occ_df["Station_Id"].cast(IntegerType()))
 
         
-        spark.sql("set spark.sql.legacy.timeParserPolicy=LEGACY")
+        self.spark.sql("set spark.sql.legacy.timeParserPolicy=LEGACY")
         occ_df = occ_df.withColumn("OccupancyDateTime", \
                        F.to_timestamp(occ_df.OccupancyDateTime, format="mm/dd/yyyy hh:mm:ss a"))
         
@@ -92,8 +98,12 @@ class ParkingOccupancyTransform:
         
         #occ_df.write.mode("overwrite").parquet("C:\\Files\\parking_occupancy.parquet")
 
-       pg=PostgresConnector()
-       pg.write(occ_df,'occupancy', "overwrite"):
+        occ_df=occ_df.drop('Location')
+
+        occ_df.printSchema()
+        occ_df.show(2)
+        pg=PostgresConnector()
+        pg.write(occ_df,'occupancy', "overwrite")
         
 
     def transform_load_blockface_dataset(self):
@@ -147,10 +157,10 @@ class ParkingOccupancyTransform:
                 .add("shape_length",DoubleType(),True) 
 
         
-        blockface = spark.read.format("csv") \
+        blockface = self.spark.read.format("csv") \
                         .option("header", True) \
                         .schema(schema) \
-                        .load("C:\\FIles\\BlockFace.csv")
+                        .load(self._load_path+"BlockFace.csv")
     
 
         columns_to_drop = ["objectid","segkey",
@@ -165,12 +175,7 @@ class ParkingOccupancyTransform:
                         "overrideyn","overridecomment",
                         "shape_length"]
 
-        blockface=blockface.drop(*columns_to_drop)
-
-
-        blockface_df = blockface_df.drop(,axis=1)
-       
-    
+        blockface=blockface.drop(*columns_to_drop)    
 
         blockface=blockface.withColumn('wkd_start1',parkingOccpn_udf.udf_format_minstoHHMMSS('wkd_start1')) \
                         .withColumn('wkd_end1',parkingOccpn_udf.udf_format_minstoHHMMSS('wkd_end1')) \
@@ -186,7 +191,12 @@ class ParkingOccupancyTransform:
                         .withColumn('sat_end3',parkingOccpn_udf.udf_format_minstoHHMMSS('sat_end3'))
                                
                   
-       pg=PostgresConnector()
-       pg.write(blockface,'blockface', "overwrite"):
-       
+        blockface.printSchema()
+
+        blockface.show(3)
+        pg=PostgresConnector()
+        pg.write(blockface,'blockface', "overwrite")
+        
                     
+#po=ParkingOccupancyTransform()
+#po.transform_load_blockface_dataset()
