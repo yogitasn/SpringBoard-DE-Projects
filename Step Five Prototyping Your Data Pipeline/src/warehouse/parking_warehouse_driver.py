@@ -1,16 +1,20 @@
 import configparser
 import logging
 import psycopg2
-from staging_queries import drop_staging_tables,create_staging_tables
+from warehouse.staging_queries import drop_staging_tables,create_staging_tables
 from pathlib import Path
 
 logging.basicConfig(format='%(asctime)s :: %(levelname)s :: %(funcName)s :: %(lineno)d \
 :: %(message)s', level = logging.INFO)
 
 config = configparser.ConfigParser()
-config.read('.\warehouse_config.cfg')
+config.read('.\\warehouse\\warehouse_config.cfg')
 
 class ParkingWarehouseDriver:
+
+    """
+    The below method is used to create staging tables in postgres
+    """
 
     def __init__(self):
         self._conn = psycopg2.connect("host={} dbname={} user={} password={} port={}".format(*config['DATABASE'].values()))
@@ -32,7 +36,3 @@ class ParkingWarehouseDriver:
             logging.debug(f"Executing Query : {query}")
             self._cur.execute(query)
             self._conn.commit()
-
-
-pw=ParkingWarehouseDriver()
-pw.setup_staging_tables()

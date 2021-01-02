@@ -1,12 +1,15 @@
 from pyspark.sql import DataFrameWriter
-import os
 
 class PostgresConnector(object):
+    """
+    Helper function to connect to Postgres and load dataframe
+    
+    """
     def __init__(self):
-        self.database_name = 'occupancy'
-        self.hostname = 'localhost'
-        self.url_connect = "jdbc:postgresql://{hostname}:5432/{db}".format(hostname=self.hostname, db=self.database_name)
-        self.properties = {"user":"", 
+        #self.database_name = occupancy
+        #self.hostname = localhost
+        self.url_connect = "jdbc:postgresql://localhost:5432/occupancy"
+        self.properties = {"user":"postgres", 
                       "password":'Quark@2416',
                       "driver": "org.postgresql.Driver"
                      }

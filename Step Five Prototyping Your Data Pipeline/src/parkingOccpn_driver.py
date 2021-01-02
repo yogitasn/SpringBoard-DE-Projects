@@ -1,25 +1,28 @@
+import findspark
+findspark.init()
+findspark.find()
+import pyspark
 from pyspark.sql import SparkSession
 from pathlib import Path
 import logging
 import logging.config
 import configparser
 import time
-from .warehouse import ParkingWarehouseDriver
+from warehouse.parking_warehouse_driver import ParkingWarehouseDriver
+from parkingOccpn_transform_load import ParkingOccupancyLoadTransform
 
 def main():
     """
     This method performs below tasks:
-    1: Check for data in Landing Zone, if new files are present move them to Working Zone
-    2: Transform data present in working zone and save the transformed data to Processed Zone
-    3: Run Data Warehouse functionality by setting up Staging tables, then loading staging tables, performing upsert operations on warehouse.
+    1: Run Data Warehouse functionality by setting up Staging tables 
+    2. Perform transformations on the dataset and load the staging warehouse tables 
     """
     logging.debug("\n\nSetting up Spark Session...")
-    spark = create_sparksession()
-    pot = ParkingOccupancyTransform()
+    pot = ParkingOccupancyLoadTransform()
 
     # Modules in the project
     modules = {
-        "parkingOccupancy.csv": pot.transform_load_parking_occupancy,
+        "parkingOccupancy.csv": pot.transform_load_parking_hist_occupancy,
         "blockface.csv" : pot.transform_load_blockface_dataset
     }
 
@@ -32,9 +35,8 @@ def main():
     logging.debug("Setting up staging tables")
     prwarehouse.setup_staging_tables()
     logging.debug("Populating staging tables")
-    for file in files_in_working_zone:
-        if file in modules.keys():
-            modules[file]()
+    for file in modules.keys():
+        modules[file]()
 
 # Entry point for the pipeline
 if __name__ == "__main__":

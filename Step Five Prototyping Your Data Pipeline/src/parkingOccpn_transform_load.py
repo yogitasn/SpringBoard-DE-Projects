@@ -1,23 +1,18 @@
 import findspark
 findspark.init()
-findspark.find()
 import pyspark
-from pyspark.sql.types import StringType
-from pyspark.sql import functions as fn
-import parkingOccpn_udf
+from pyspark.sql import SparkSession
+from pyspark.sql.types import StructType,StructField, StringType, IntegerType ,LongType,DecimalType
+from pyspark.sql.types import ArrayType, DoubleType, BooleanType
+from pyspark.sql import functions as F
+from pyspark.sql.functions import col,array_contains,date_format
 import logging
 import configparser
 from pathlib import Path
-import pandas as pd
 
-findspark.find()
-from pyspark.sql import SparkSession
-from pyspark.sql.types import StructType,StructField, StringType, IntegerType ,LongType
-from pyspark.sql.types import ArrayType, DoubleType, BooleanType
-from pyspark.sql.functions import col,array_contains
-from pyspark.sql import functions as F
-from pyspark.sql.types import DecimalType
-from warehouse.postgres import PostgresConnector
+
+import parkingOccpn_udf
+from warehouse.postgres_connector import PostgresConnector
 
 logging.basicConfig(format='%(asctime)s :: %(levelname)s :: %(funcName)s :: %(lineno)d \
 :: %(message)s', level = logging.INFO)
@@ -25,13 +20,13 @@ logging.basicConfig(format='%(asctime)s :: %(levelname)s :: %(funcName)s :: %(li
 config = configparser.ConfigParser()
 config.read('..\config.cfg')
 
-class ParkingOccupancyTransform:
+class ParkingOccupancyLoadTransform:
     """
-    This class performs transformation operations on the dataset.
+    This class performs transformation and load operations on the dataset.
     1. Transform timestamp format, clean text part, remove extra spaces etc
-    2. Join this lookup data frame with original dataframe to get only the latest records from the dataset.
-    3. Load the transformed dataset into postgres table
+    2. Load the transformed dataset into postgres table
     """
+    # Jars to connect to postgres via spark
     jardrv = "~/spark_drivers/postgresql-42.2.12.jar"
         
     def __init__(self):
@@ -42,7 +37,7 @@ class ParkingOccupancyTransform:
                                   getOrCreate()
 
 
-    def transform_load_parking_occupancy(self):
+    def transform_load_parking_hist_occupancy(self):
         logging.debug("Inside transform parking occupancy dataset module")
         
         schema = StructType() \
@@ -96,14 +91,21 @@ class ParkingOccupancyTransform:
         occ_df = occ_df.withColumn("Latitude",occ_df["Latitude"].cast(DoubleType())) \
                        .withColumn("Longitude",occ_df["Longitude"].cast(DoubleType()))
         
-        #occ_df.write.mode("overwrite").parquet("C:\\Files\\parking_occupancy.parquet")
-
+    
         occ_df=occ_df.drop('Location')
+        
+        date_dim = occ_df.withColumn('day_of_week',date_format(col("OccupancyDateTime"), "EEEE")) \
+                         .withColumn('month',date_format(col("OccupancyDateTime"), "MMMM"))
 
-        occ_df.printSchema()
-        occ_df.show(2)
+        date_dim=date_dim.select('OccupancyDateTime','day_of_week','month')
+    
+
+
+        #loading hist_occupancy in postgres
         pg=PostgresConnector()
-        pg.write(occ_df,'occupancy', "overwrite")
+        pg.write(occ_df,'hist_occupancy', "overwrite")
+
+        pg.write(date_dim,'date_dim',"overwrite")
         
 
     def transform_load_blockface_dataset(self):
@@ -191,12 +193,10 @@ class ParkingOccupancyTransform:
                         .withColumn('sat_end3',parkingOccpn_udf.udf_format_minstoHHMMSS('sat_end3'))
                                
                   
-        blockface.printSchema()
 
-        blockface.show(3)
         pg=PostgresConnector()
         pg.write(blockface,'blockface', "overwrite")
         
                     
 #po=ParkingOccupancyTransform()
-#po.transform_load_blockface_dataset()
+#po.transform_load_parking_occupancy()

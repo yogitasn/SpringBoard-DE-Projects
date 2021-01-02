@@ -2,13 +2,19 @@ from datetime import datetime, timedelta
 from pyspark.sql.functions import udf
 import re
 
+# udf to remove ' and , in the column value
 commaRep = udf(lambda x: re.sub('[\'\s,]','', x))
 
+# udf to remove '(' and ')' in the column value
 braceRepl = udf(lambda x: re.sub('\(|\)','', x))
 
+
 def format_minstoHHMMSS(x):
+    """
+    Function to convert the minutes to HH:MM:SS format
+    """
     try:
-        duration=datetime.timedelta(minutes=int(x))
+        duration=timedelta(minutes=int(x))
         seconds = duration.total_seconds()
         minutes = seconds // 60
         hours = minutes // 60
@@ -16,4 +22,5 @@ def format_minstoHHMMSS(x):
     except:
         None
 
+# udf for entire dataframe
 udf_format_minstoHHMMSS=udf(lambda x: format_minstoHHMMSS(x))

@@ -146,7 +146,8 @@ def run():
     print(_greeting(current_day, current_month, current_year))
     print(_banner())
   #  global year_codes
-
+  
+     # Commented the below lines of code as it downloads a huge file of about 21GB
 #    for year in range(2020, current_year + 1):
  #       year_codes[year]=get_parkingOccupancy_file_code(year)
     
