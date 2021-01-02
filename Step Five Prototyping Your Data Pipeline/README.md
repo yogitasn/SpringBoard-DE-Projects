@@ -60,17 +60,17 @@ Below are remaining files and their functions:
 
 * Blockface Table
 
-![Alt text](/screenshot/BlockfaceTable.PNG?raw=true "Blockface Table")
+![Alt text](screenshot/BlockfaceTable.PNG?raw=true "Blockface Table")
 
 * Blockface Table Record Count
 
-![Alt text](/screenshot/BlockfaceRecCnt.PNG?raw=true "Blockface Table Count")
+![Alt text](screenshot/BlockfaceRecCnt.PNG?raw=true "Blockface Table Count")
 
 * Date Dimension Table
 
-![Alt text](/screenshot/DateDim.PNG?raw=true "Date Dimension Table")
+![Alt text](screenshot/DateDim.PNG?raw=true "Date Dimension Table")
 
 * Blockface Table Record Count
 
-![Alt text](/screenshot/OccupancyRecCnt.PNG?raw=true "Date Dimension Table Count")
+![Alt text](screenshot/OccupancyRecCnt.PNG?raw=true "Date Dimension Table Count")
 
