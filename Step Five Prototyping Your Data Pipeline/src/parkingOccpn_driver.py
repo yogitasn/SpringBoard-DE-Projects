@@ -1,21 +1,10 @@
 from pyspark.sql import SparkSession
-from goodreads_transform import GoodreadsTransform
-from s3_module import GoodReadsS3Module
 from pathlib import Path
 import logging
 import logging.config
 import configparser
-from warehouse.goodreads_warehouse_driver import GoodReadsWarehouseDriver
 import time
-
-# Setting configurations. Look config.cfg for more details
-config = configparser.ConfigParser()
-config.read_file(open(f"{Path(__file__).parents[0]}/config.cfg"))
-
-# Setting up logger, Logger properties are defined in logging.ini file
-logging.config.fileConfig(f"{Path(__file__).parents[0]}/logging.ini")
-logger = logging.getLogger(__name__)
-
+from .warehouse import ParkingWarehouseDriver
 
 def main():
     """
@@ -30,39 +19,22 @@ def main():
 
     # Modules in the project
     modules = {
-        "parkingOccupancy.csv": pot.transform_parking_occupancy,
-        "blockface.csv" : pot.transform_blockface_dataset
+        "parkingOccupancy.csv": pot.transform_load_parking_occupancy,
+        "blockface.csv" : pot.transform_load_blockface_dataset
     }
 
-    logging.debug("\n\nCopying data from s3 landing zone to ...")
-    gds3 = GoodReadsS3Module()
-    gds3.s3_move_data(source_bucket= config.get('BUCKET','LANDING_ZONE'), target_bucket= config.get('BUCKET', 'WORKING_ZONE'))
-
-    files_in_working_zone = gds3.get_files(config.get('BUCKET', 'WORKING_ZONE'))
-
-    # Cleanup processed zone if files available in working zone
-    if len([set(modules.keys()) & set(files_in_working_zone)]) > 0:
-        logging.info("Cleaning up processed zone.")
-        gds3.clean_bucket(config.get('BUCKET', 'PROCESSED_ZONE'))
-
-    for file in files_in_working_zone:
-        if file in modules.keys():
-            modules[file]()
-
+  
     logging.debug("Waiting before setting up Warehouse")
     time.sleep(5)
 
     # Starting warehouse functionality
-    grwarehouse = GoodReadsWarehouseDriver()
+    prwarehouse = ParkingWarehouseDriver()
     logging.debug("Setting up staging tables")
-    grwarehouse.setup_staging_tables()
+    prwarehouse.setup_staging_tables()
     logging.debug("Populating staging tables")
-    grwarehouse.load_staging_tables()
-    logging.debug("Setting up Warehouse tables")
-    grwarehouse.setup_warehouse_tables()
-    logging.debug("Performing UPSERT")
-    grwarehouse.perform_upsert()
-
+    for file in files_in_working_zone:
+        if file in modules.keys():
+            modules[file]()
 
 # Entry point for the pipeline
 if __name__ == "__main__":

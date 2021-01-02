@@ -4,6 +4,7 @@ import argparse
 import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+
 import time
 from selenium.webdriver.support.select import Select
 import datetime
@@ -41,7 +42,7 @@ def get_parkingOccupancy_file_code(year):
 
     chrome_options = Options()
     chrome_options.add_argument("--headless")
-    chrome_option>>>>>>>>//s.add_argument("--window-size=1920x1080")
+    chrome_option.add_argument("--window-size=1920x1080")
     chrome_options.add_argument("--disable-notifications")
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--verbose')
