@@ -10,7 +10,7 @@
 This project is Data pipeline mini project.
 
 ## Description
-A basic pipeline created using Python and SQL skills. Functions are developed to connect to MYSQL database, create tables and load third-party Sale tickets data. Query is used to fetch the records programmatically for the most top-selling tickets for the past month and finally displayed in user friendly format.
+A basic pipeline created using Python and SQL skills. Functions are developed to connect to the MYSQL database, create tables, and load third-party Sale tickets data. A query is used to fetch the records programmatically for the most top-selling tickets for the past month and finally displayed in a user-friendly format.
 
 
 ## Technologies
