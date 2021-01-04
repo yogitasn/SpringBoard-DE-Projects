@@ -18,6 +18,7 @@ class DataPipeline(object):
         self.username=config['DATABASE']['DB_USER']
         self.password=config['DATABASE']['DB_PASSWORD']
         self.host=config['DATABASE']['DB_HOST']
+        self.port=config['DATABASE']['DB_PORT']
         self.database=config['DATABASE']['DATABASE']
 
     def get_db_connection(self):
@@ -30,7 +31,7 @@ class DataPipeline(object):
             connection = mysql.connector.connect(user=self.username,
                                             password=self.password,
                                             host=self.host,
-                                            port='3306',
+                                            port=self.port,
                                             database=self.database)
         except Exception as error:
             print("Error while connecting to database for job tracker", error)
