@@ -23,13 +23,13 @@ Project is created with:
 
 ## Setup
 
-Update the below link in the python files to run locally  
+Update the below line in the python files to run locally  
 
 ```
 #!<local_path_to_python.exe>
 
 ```
-Update the below link in the python files to run on Hadoop
+Update the below line in the python files to run on Hadoop
 
 ```
 #!/usr/bin/env python
@@ -38,7 +38,7 @@ Update the below link in the python files to run on Hadoop
 
 ## LocalExecution
 
-Output of mapreduce program
+Output of Mapreduce program
 
 * Mapper1 Output
 
