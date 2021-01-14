@@ -7,6 +7,7 @@ current_vin =  None
 vin = None
 make = None
 year = None
+accident= False
 
 def reset():
 # [Logic to reset master info for every new group]
@@ -16,10 +17,12 @@ def reset():
     make = None
     year = None
 
+    accident=False
+    
 def flush():
 # [Write the output]
 # input comes from STDIN
-   print('%s\t%s\t%s' %(vin,make,year))
+   print('%s\t%s\t%s' %(current_vin,make,year))
 
 for line in sys.stdin:
 # [parse the input we got from mapper and update the master info]
@@ -31,30 +34,29 @@ for line in sys.stdin:
     vin = line[0]
     incident_type= line[1]
 
+    
     if current_vin == vin:
         if incident_type == 'I':
             make= line[2]
-            year= line[3]
-        elif incident_type == 'A':
-             flush()
-        reset()
-
-# [detect key changes]
+            year= line[3]    
+        
+    
+    # [detect key changes]
     if current_vin != vin:
         if current_vin != None:
-        # write result to STDOUT
-          if incident_type == 'I':
-           # print("Inside diffrent vin")
-            make = line[2]
-            year = line[3]
-          elif incident_type == 'A':
-             flush()
+         #  print("Flushing Records for Accident found for {}".format(current_vin))
+           flush()
         reset()
-        
+         
 
-# [update more master info after the key change handling]
-    
+   # [update more master info after the key change handling]
+    if incident_type == 'I':
+        make= line[2]
+        year= line[3]  
     current_vin = vin
+    
+    
+   
 
 # do not forget to output the last group if needed!
-#flush()
+flush()
