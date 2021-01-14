@@ -7,8 +7,8 @@ for line in sys.stdin:
     line = line.strip()
 
     # parse the input we got from mapper.py
-    vin, make, year = line.split(' ')
+    line = line.split('\t')
+    make=line[1]
+    year=line[2]
 
-    print(make,year,1)
-
- 
+    print('%s\t%s\t%d' %(make,year,1))

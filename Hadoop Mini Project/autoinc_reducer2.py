@@ -11,7 +11,11 @@ for line in sys.stdin:
     line = line.strip()
  
     # parse the input from mapper.py
-    make, year, count = line.split(' ')
+    line= line.split('\t')
+    make=line[0]
+    year=line[1]
+    count=line[2]
+
     # convert count (currently a string) to int
     try:
         count = int(count)
@@ -26,4 +30,4 @@ for line in sys.stdin:
 # Write the tuples to stdout
 # Currently tuples are unsorted
 for make,year in accidentrecord.keys():
-    print(accidentrecord[(make,year)] )
+    print('%s\t%s\t%s' %(make,year, accidentrecord[(make,year)]))

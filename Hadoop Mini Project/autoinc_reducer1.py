@@ -5,7 +5,6 @@ import sys
 
 current_vin =  None
 vin = None
-incident_type = None
 make = None
 year = None
 
@@ -14,14 +13,13 @@ def reset():
 # Run for end of every group
     current_vin =  None
     vin = None
-    incident_type = None
     make = None
     year = None
 
 def flush():
 # [Write the output]
 # input comes from STDIN
-   print(vin,make,year)
+   print('%s\t%s\t%s' %(vin,make,year))
 
 for line in sys.stdin:
 # [parse the input we got from mapper and update the master info]
@@ -32,20 +30,31 @@ for line in sys.stdin:
     line= line.split("\t")
     vin = line[0]
     incident_type= line[1]
-    
-    if incident_type == 'I':
-        make= line[2]
-        year= line[3]
+
+    if current_vin == vin:
+        if incident_type == 'I':
+            make= line[2]
+            year= line[3]
+        elif incident_type == 'A':
+             flush()
+        reset()
 
 # [detect key changes]
     if current_vin != vin:
         if current_vin != None:
         # write result to STDOUT
-           flush()
+          if incident_type == 'I':
+           # print("Inside diffrent vin")
+            make = line[2]
+            year = line[3]
+          elif incident_type == 'A':
+             flush()
         reset()
+        
 
 # [update more master info after the key change handling]
+    
     current_vin = vin
 
 # do not forget to output the last group if needed!
-flush()
+#flush()
