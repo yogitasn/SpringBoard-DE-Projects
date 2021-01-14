@@ -101,10 +101,12 @@ After execution, the output will be saved to the 'output folder'
 
 ```
 
-[hdfs@sandbox-hdp ~]$ hdfs dfs -cat /output/part-00000                                                                                                              
-INU45KIOOPA343980       Mercedes        2015
-VOME254OOXW344325       Toyota  2017                                                                                                                                
-VXIO456XLBB630221       Mercedes        2015
+[hdfs@sandbox-hdp ~]$ hdfs dfs -cat /output/part-00000                                                                                                                                                            
+EXOA00341AB123456       Mercedes      2016
+INU45KIOOPA343980       Mercedes        2015                
+UXIA769ABCC447906       Toyota  2017                               
+VOME254OOXW344325       Mercedes        2015                      
+VXIO456XLBB630221       Nissan  2003
 
 ```
 
@@ -114,9 +116,11 @@ The output should be as follows
 
 ```
 
-[hdfs@sandbox-hdp ~]$ hdfs dfs -cat /accidents_count_per_make/part-00000                                                                                                                                                
-Toyota  2017    1                                                                                                                                                                                        
-Mercedes        2015    2  
+[hdfs@sandbox-hdp ~]$ hdfs dfs -cat /accidents_count_per_make_year/part-00000                                                                                                                                           
+Toyota  2017    1                                                              
+Mercedes        2016    1                                                    
+Mercedes        2015  2                               
+Nissan  2003    1       
 
 ```
 
