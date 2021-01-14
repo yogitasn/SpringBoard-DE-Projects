@@ -10,26 +10,26 @@
 This project is Hadoop Mini Project that uses Map reduce to get the number of accidents per make and year of the car
 
 ## Description
-In this project, you will utilize data from an automobile tracking platform that tracks the history of important incidents after the initial sale of a new vehicle. Such incidents include subsequent private sales, repairs, and accident reports. The platform provides a good reference for second-hand buyers to understand the vehicles they are interested in.
+In this project, we need to utilize data from an automobile tracking platform that tracks the history of important incidents after the initial sale of a new vehicle. Such incidents include subsequent private sales, repairs, and accident reports. The platform provides a good reference for second-hand buyers to understand the vehicles they are interested in.
 
 A Mapreduce program needs to be developed to get the number of accident records per make and year of the car.
 
 
 ## Technologies
 Project is created with:
-* Hadoop Sandbox 3.0.0
+* Hortonworks HDP Sandbox 3.0.0
 * Python 3.7+
 
 
 ## Setup
 
-Update the below link to run locally  
+Update the below link in the python files to run locally  
 
 ```
-#!<path_to_python>
+#!<local_path_to_python.exe>
 
 ```
-Update the below link to run on Hadoop
+Update the below link in the python files to run on Hadoop
 
 ```
 #!/usr/bin/env python
@@ -46,7 +46,7 @@ Output of mapreduce program
 
 * Reducer1 Output
 
-![Alt text](reducer11output.PNG?raw=true "Reducer1Output")
+![Alt text](reducer1output.PNG?raw=true "Reducer1Output")
 
 * Mapper2 Output
 
@@ -80,7 +80,7 @@ Move the data.csv to the datafolder in HDFS
 hdfs dfs -put <local_path>/data.csv /<datafolder>/
 
 ```
-Create bashscript 'mapreduce1.sh' to execute the first mapreduce files
+Create bashscript 'mapreduce1.sh' to execute the first set of mapreduce code
 
 ```
 
