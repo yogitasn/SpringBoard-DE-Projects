@@ -42,19 +42,19 @@ Output of mapreduce program
 
 * Mapper1 Output
 
-![Alt text](mapper1output.PNG?raw=true "Mapper1Output")
+![Alt text](/screenshot/mapper1output.PNG?raw=true "Mapper1Output")
 
 * Reducer1 Output
 
-![Alt text](reducer1output.PNG?raw=true "Reducer1Output")
+![Alt text](/screenshot/reducer1output.PNG?raw=true "Reducer1Output")
 
 * Mapper2 Output
 
-![Alt text](mapper2output.PNG?raw=true "Mapper2Output")
+![Alt text](/screenshot/mapper2output.PNG?raw=true "Mapper2Output")
 
 * Reducer2 Output
 
-![Alt text](reducer2output.PNG?raw=true "Reducer21Output")
+![Alt text](/screenshot/reducer2output.PNG?raw=true "Reducer21Output")
 
 ## HadoopExecution
 
