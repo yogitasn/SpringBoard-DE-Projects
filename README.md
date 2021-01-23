@@ -15,3 +15,7 @@ Project Folder | Description | Done
 **[Step 4 - Data Exploration](Step%204%20-%20Data%20Exploration)** | Data Exploration of Seattle Parking Occupancy Project | :heavy_check_mark:
 **[SQL Tuning Mini Project](SQL%20Tuning%20Mini%20Project)** | Solution for the SQL Tuning Mini Project | :heavy_check_mark:
 **[Step Five Prototyping Your Data Pipeline](Step%20Five%20Prototyping%20Your%20Data%20Pipeline)** | Prototype for Open Ended DE Project | :heavy_check_mark:
+**[Data Pipeline Mini Project](Data%20Pipeline%20Mini%20Project)** | Solution for the Data Pipeline Mini Project | :heavy_check_mark:
+**[Hadoop Mini Project](Hadoop%20Mini%20Project)** | Solution for the Hadoop Mini Project | :heavy_check_mark:
+**[Step 1 - Database Table Design](Step%201%20-%20Database%20Table%20Design)** | High Level Architecture Solution for the Guided Capstone Project | :heavy_check_mark:
+**[Azure Mini Project HDInsight](Azure%20Mini%20Project%20HDInsight)** | Solution for the Azure HDInsight Mini Project | :heavy_check_mark:
