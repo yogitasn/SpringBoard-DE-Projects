@@ -1,4 +1,4 @@
-gi## Table of contents
+Table of contents
 * [General Info](#general-info)
 * [Description](#description)
 * [Technologies](#technologies)
@@ -92,3 +92,5 @@ Nissan-2003,1
 * Final Text file output
 
 ![Alt text](screenshot/outputfile.PNG?raw=true "Outputfile")
+
+* File 'sparkjobrunlog.txt' is the command line execution log of successful spark job run
