@@ -1,4 +1,4 @@
-## Table of contents
+gi## Table of contents
 * [General Info](#general-info)
 * [Description](#description)
 * [Technologies](#technologies)
@@ -24,7 +24,7 @@ Project is created with:
 
 * Execution in Hadoop Distributed Environment
 
-Move the mapreduce files to /home/hdfs and assign permissions
+Move the python file with spark code to /home/hdfs and assign permissions
 
 ```
 chmod +x /home/hduser/autoinc_spark.py
