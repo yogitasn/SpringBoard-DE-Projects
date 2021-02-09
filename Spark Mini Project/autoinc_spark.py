@@ -1,19 +1,11 @@
-import findspark
-
-findspark.init()
-
-findspark.find()
-
-import pyspark
-
-findspark.find()
-
 from pyspark.sql import SparkSession
 from operator import add
 
+spark = SparkSession.builder.appName("appName").getOrCreate() 
+
 #Read data.csv in a RDD
 raw_rdd = spark.sparkContext.\
-           textFile("sparkmini/data.csv")
+           textFile("/sparkmini/data.csv")
 
 # Map on the original RDD to create new RDD of key,value pair i.e ((vin_number),make,year,incident_type)
 vin_kv=raw_rdd.map(lambda x:((x.split(",")[2]),(x.split(",")[3],x.split(",")[5],x.split(",")[1])))
@@ -42,4 +34,4 @@ accident_rec_per_year_frmt=accident_rec_per_year.map(lambda i:i[0][0]+"-"+i[0][1
 #['Nissan-2003,1', 'Mercedes-2015,2', 'Mercedes-2016,1', 'Toyota-2017,1']
 
 # Save the final RDD 'accident_rec_per_year' as text file
-accident_rec_per_year.saveAsTextFile("makeyear")
+accident_rec_per_year_frmt.saveAsTextFile("accident_records_count")
