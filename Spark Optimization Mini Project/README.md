@@ -22,17 +22,19 @@ Project is created with:
 Following modifications were done to optimize the code
 
 ```
-Default partitions in Spark is 200. 
+The default no of partitions in Spark is 200. 
 
 questionsDF.rdd.getNumPartitions()=4
 
 answers_month.rdd.getNumPartitions()=200
 
-To avoid more shuffles in the join step,  reduced the no. of partitions using coalesce
+To avoid more shuffles in the join step,  reduced the no. of partitions using coalesce and set the same no. of partitions for both dataframes in the join condition 
 
 answers_month=answers_month.coalesce(4)
 
-Also, removed the redundant column 'creation_date' in the select step and noticed improvement in performance
+resultDF = questionsDF.join(answers_month, 'question_id').select('question_id', 'title', 'month', 'cnt')
+
+Also, removed the redundant column 'creation_date' in the select step and noticed an improvement in performance
 
 ```
 
