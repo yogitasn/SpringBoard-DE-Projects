@@ -2,7 +2,7 @@ Table of contents
 * [General Info](#general-info)
 * [Description](#description)
 * [Technologies](#technologies)
-* [HadoopSetupandExecution](#hadoopsetupandexecution)
+* [Optimization](#optimization)
 
 ## General Info
 This project is Spark Optimization Mini Project that will optimize existing Pyspark code to improve its performance.
@@ -17,14 +17,18 @@ Project is created with:
 * Python 3.7+
 * Spark2
 
-Following strategy was applied to optimize the code
+## Optimization
+
+Following modifications were done to optimize the code
 
 ```
-Default partitions in Spark is 200. Reduced the no of partitions using coalesce
+Default partitions in Spark is 200. 
 
 questionsDF.rdd.getNumPartitions()=4
 
-To avoid shuffles in the join step,  reduced the no. of partitions using coalesce
+answers_month.rdd.getNumPartitions()=200
+
+To avoid more shuffles in the join step,  reduced the no. of partitions using coalesce
 
 answers_month=answers_month.coalesce(4)
 
@@ -47,4 +51,3 @@ Also, removed the redundant column 'creation_date' in the select step and notice
 * Spark Job Execution Time After Optimization
 
 ![Alt text](Screenshot/SparkJobwithOptimization.PNG?raw=true "SparkJobwithOptimization")
-
