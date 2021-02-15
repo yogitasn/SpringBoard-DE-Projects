@@ -6,20 +6,20 @@ This repository contains my solutions to the course "Springboard Data Engineerin
 
 Project Folder | Description | Done
 ------------ | ------------- | -------------
-**[Step 1 - Project Ideas](Step%201%20-%20Project%20Ideas)**  | Project Ideas for Open Ended Data Engineering Capstone Project |:heavy_check_mark:
-**[Step 2 - Project Proposal](Step%202%20-%20Project%20Proposal)**  | Project Proposal Edgar Log Dataset for Open Ended Capstone Project | :heavy_check_mark:
-**[Banking System Mini Project](Banking%20System%20Mini%20Project)** | Building a Banking System using OOP concepts of Python | :heavy_check_mark:
-**[Data Modelling Exercise](Data%20Modelling%20Exercise)** | Data Modelling exercise | :heavy_check_mark:
-**[Step 3 - Data Collection](Step%203%20-%20Data%20Collection)** | Designed a Data collection process using Python for Seattle Parking Occupancy Project | :heavy_check_mark:
-**[EuroCup SQL Mini Project](EuroCup%20SQL%20Mini%20%Project)** | SQL query solution to answer the questions on EuroCup 2016 data | :heavy_check_mark:
-**[Step 4 - Data Exploration](Step%204%20-%20Data%20Exploration)** | Data Exploration of Seattle Parking Occupancy Project | :heavy_check_mark:
-**[SQL Tuning Mini Project](SQL%20Tuning%20Mini%20Project)** | Solution for the SQL Tuning Mini Project | :heavy_check_mark:
-**[Step Five Prototyping Your Data Pipeline](Step%20Five%20Prototyping%20Your%20Data%20Pipeline)** | Prototype for Open Ended DE Project | :heavy_check_mark:
-**[Data Pipeline Mini Project](Data%20Pipeline%20Mini%20Project)** | Solution for the Data Pipeline Mini Project | :heavy_check_mark:
-**[Hadoop Mini Project](Hadoop%20Mini%20Project)** | Solution for the Hadoop Mini Project | :heavy_check_mark:
-**[Step 1 - Database Table Design](Step%201%20-%20Database%20Table%20Design)** | High Level Architecture Solution for the Guided Capstone Project | :heavy_check_mark:
-**[Azure Mini Project HDInsight](Azure%20Mini%20Project%20HDInsight)** | Solution for the Azure HDInsight Mini Project | :heavy_check_mark:
-**[Azure Mini Project Data Factory](Azure%20Mini%20Project%20Data%20Factory)** | Solution for the Azure Project Data Factory | :heavy_check_mark:
-**[Step 2 - Data Ingestion](Step%202%20-%20Data%20Ingestion)** | Solution for the Guided Capstone Data Ingestion Mini Project | :heavy_check_mark:
-**[Spark Mini Project](Spark%20Mini%20Project)** | Solution for the Spark Mini Project | :heavy_check_mark:
-**[Spark Optimization Mini Project](Spark%20Optimization%20Mini%20Project)** | Solution for the Spark Optimization Mini Project | :heavy_check_mark:
+| 1 |**[Step 1 - Project Ideas](Step%201%20-%20Project%20Ideas)**  | Project Ideas for Open Ended Data Engineering Capstone Project |:heavy_check_mark:
+| 2 |**[Step 2 - Project Proposal](Step%202%20-%20Project%20Proposal)**  | Project Proposal Edgar Log Dataset for Open Ended Capstone Project | :heavy_check_mark:
+| 3 |**[Banking System Mini Project](Banking%20System%20Mini%20Project)** | Building a Banking System using OOP concepts of Python | :heavy_check_mark:
+| 4 |**[Data Modelling Exercise](Data%20Modelling%20Exercise)** | Data Modelling exercise | :heavy_check_mark:
+| 5 |**[Step 3 - Data Collection](Step%203%20-%20Data%20Collection)** | Designed a Data collection process using Python for Seattle Parking Occupancy Project | :heavy_check_mark:
+| 6 |**[EuroCup SQL Mini Project](EuroCup%20SQL%20Mini%20%Project)** | SQL query solution to answer the questions on EuroCup 2016 data | :heavy_check_mark:
+| 7 |**[Step 4 - Data Exploration](Step%204%20-%20Data%20Exploration)** | Data Exploration of Seattle Parking Occupancy Project | :heavy_check_mark:
+| 8 |**[SQL Tuning Mini Project](SQL%20Tuning%20Mini%20Project)** | Solution for the SQL Tuning Mini Project | :heavy_check_mark:
+| 9 |**[Step Five Prototyping Your Data Pipeline](Step%20Five%20Prototyping%20Your%20Data%20Pipeline)** | Prototype for Open Ended DE Project | :heavy_check_mark:
+| 10 |**[Data Pipeline Mini Project](Data%20Pipeline%20Mini%20Project)** | Solution for the Data Pipeline Mini Project | :heavy_check_mark:
+| 11 |**[Hadoop Mini Project](Hadoop%20Mini%20Project)** | Solution for the Hadoop Mini Project | :heavy_check_mark:
+| 12 |**[Step 1 - Database Table Design](Step%201%20-%20Database%20Table%20Design)** | High Level Architecture Solution for the Guided Capstone Project | :heavy_check_mark:
+| 13 |**[Azure Mini Project HDInsight](Azure%20Mini%20Project%20HDInsight)** | Solution for the Azure HDInsight Mini Project | :heavy_check_mark:
+| 14 |**[Azure Mini Project Data Factory](Azure%20Mini%20Project%20Data%20Factory)** | Solution for the Azure Project Data Factory | :heavy_check_mark:
+| 15 |**[Step 2 - Data Ingestion](Step%202%20-%20Data%20Ingestion)** | Solution for the Guided Capstone Data Ingestion Mini Project | :heavy_check_mark:
+| 16 |**[Spark Mini Project](Spark%20Mini%20Project)** | Solution for the Spark Mini Project | :heavy_check_mark:
+| 17 |**[Spark Optimization Mini Project](Spark%20Optimization%20Mini%20Project)** | Solution for the Spark Optimization Mini Project | :heavy_check_mark:
