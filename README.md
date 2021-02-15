@@ -4,8 +4,8 @@ This repository contains my solutions to the course "Springboard Data Engineerin
 
 # Projects
 
-Project Folder | Description | Done
------------- | ------------- | -------------
+| Project Number | Project Folder | Description | Done
+| ------------ | ------------- | -------------  | -------------
 | 1 |**[Step 1 - Project Ideas](Step%201%20-%20Project%20Ideas)**  | Project Ideas for Open Ended Data Engineering Capstone Project |:heavy_check_mark:
 | 2 |**[Step 2 - Project Proposal](Step%202%20-%20Project%20Proposal)**  | Project Proposal Edgar Log Dataset for Open Ended Capstone Project | :heavy_check_mark:
 | 3 |**[Banking System Mini Project](Banking%20System%20Mini%20Project)** | Building a Banking System using OOP concepts of Python | :heavy_check_mark:
