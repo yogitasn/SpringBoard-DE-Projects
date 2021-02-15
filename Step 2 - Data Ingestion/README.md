@@ -6,7 +6,7 @@
 
 
 ## General Info
-This project is Data Ingestion of Guided Capstone project
+This project is Data Ingestion step of Guided Capstone project
 
 ## Description
 Spring Capital data sources come from stock exchange daily submissions files in a semi-structured text format. This means
@@ -33,7 +33,31 @@ Perform the following steps
 azcopy copy "C:/SpringBoard-DE-Projects/Step 2 - Data Ingestion/data/" "https://ingestresourcegrp.blob.core.windows.net/springcapital" --recursive=true
 
 ```
+* Pass the storage account name,container name and storage account access key in 'databricks.py'
+```
+storageAccountName = '<storageAccountName>'
+storageAccountAccessKey = '<storageAccountAccessKey>'
+blobContainerName = '<blobContainerName>'
+
+```
 
 * Create a Databricks cluster and notebook and run the code in files 'databricks.py','parse_csv.py' and 'parse_json.py'
 
 The detailed steps and screenshots are in the document 'Guided Capstone Data Ingestion.docx'
+
+
+* CSV Records before parsing
+
+![Alt text](Screenshot/raw_csv_records.PNG?raw=true "CSVBeforeParse")
+
+* CSV Records after parsing
+
+![Alt text](Screenshot/parsed_csv_records.PNG?raw=true "CSVAfterParse")
+
+* JSON Records before parsing
+
+![Alt text](Screenshot/raw_json_records.PNG?raw=true "JSONBeforeParse")
+
+* JSON Records after parsing
+
+![Alt text](Screenshot/parsed_json_records.PNG?raw=true "JSONAfterParse")
