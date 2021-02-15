@@ -19,3 +19,7 @@ Project Folder | Description | Done
 **[Hadoop Mini Project](Hadoop%20Mini%20Project)** | Solution for the Hadoop Mini Project | :heavy_check_mark:
 **[Step 1 - Database Table Design](Step%201%20-%20Database%20Table%20Design)** | High Level Architecture Solution for the Guided Capstone Project | :heavy_check_mark:
 **[Azure Mini Project HDInsight](Azure%20Mini%20Project%20HDInsight)** | Solution for the Azure HDInsight Mini Project | :heavy_check_mark:
+**[Azure Mini Project Data Factory](Azure%20Mini%20Project%20Data%20Factory)** | Solution for the Azure Project Data Factory | :heavy_check_mark:
+**[Step 2 - Data Ingestion](Step%202%20-%20Data%20Ingestion)** | Solution for the Guided Capstone Data Ingestion Mini Project | :heavy_check_mark:
+**[Spark Mini Project](Spark%20Mini%20Project)** | Solution for the Spark Mini Project | :heavy_check_mark:
+**[Spark Optimization Mini Project](Spark%20Optimization%20Mini%20Project)** | Solution for the Spark Optimization Mini Project | :heavy_check_mark:
