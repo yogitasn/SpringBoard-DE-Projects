@@ -62,8 +62,6 @@ class ParkingOccupancyLoadTransform:
                     .load(self._load_path+"2020_Paid_Parking.csv")
 
         
-        #occ_df=occ_df.withColumn('Station_Id',parkingOccpn_udf.commaRep('Station_Id'))
-
         occ_df=occ_df.withColumn('Station_Id',regexp_replace(col('Station_Id'),'[\'\s,]',''))
 
         occ_df = occ_df.withColumn("Station_Id",\
@@ -205,3 +203,86 @@ class ParkingOccupancyLoadTransform:
                     
 #po=ParkingOccupancyTransform()
 #po.transform_load_parking_occupancy()
+
+schema = StructType() \
+        .add("objectid",IntegerType(),True) \
+        .add("station_id",IntegerType(),True) \
+        .add("segkey",IntegerType(),True) \
+        .add("unitid",IntegerType(),True) \
+        .add("unitid2",IntegerType(),True) \
+        .add("station_address",StringType(),True) \
+        .add("side",StringType(),True) \
+        .add("block_id",StringType(),True) \
+        .add("block_nbr",IntegerType(),True) \
+        .add("csm",StringType(),True) \
+        .add("parking_category",StringType(),True) \
+        .add("load",IntegerType(),True) \
+        .add("zone",IntegerType(),True) \
+        .add("total_zones",IntegerType(),True) \
+        .add("wkd_rate1",DoubleType(),True) \
+        .add("wkd_start1",IntegerType(),True) \
+        .add("wkd_end1",IntegerType(),True) \
+        .add("wkd_rate2",DoubleType(),True) \
+        .add("wkd_start2",StringType(),True) \
+        .add("wkd_end2",StringType(),True) \
+        .add("wkd_rate3",DoubleType(),True) \
+        .add("wkd_start3",StringType(),True) \
+        .add("wkd_end3",StringType(),True) \
+        .add("sat_rate1",DoubleType(),True) \
+        .add("sat_start1",StringType(),True) \
+        .add("sat_end1",StringType(),True) \
+        .add("sat_rate2",DoubleType(),True) \
+        .add("sat_start2",StringType(),True) \
+        .add("sat_end2",StringType(),True) \
+        .add("sat_rate3",DoubleType(),True) \
+        .add("sat_start3",StringType(),True) \
+        .add("sat_end3",StringType(),True) \
+        .add("rpz_zone",StringType(),True) \
+        .add("rpz_area",DoubleType(),True) \
+        .add("paidarea",StringType(),True) \
+        .add("parking_time_limit",DoubleType(),True) \
+        .add("subarea",StringType(),True) \
+        .add("start_time_wkd",StringType(),True) \
+        .add("end_time_wkd",StringType(),True) \
+        .add("start_time_sat",StringType(),True) \
+        .add("end_time_sat",StringType(),True) \
+        .add("primarydistrictcd",StringType(),True) \
+        .add("secondarydistrictcd",StringType(),True) \
+        .add("overrideyn",StringType(),True) \
+        .add("overridecomment",IntegerType(),True) \
+        .add("shape_length",DoubleType(),True) 
+
+
+blockface = spark.read.format("csv") \
+                .option("header", True) \
+                .schema(schema) \
+                .load("dbfs:/mnt/FileStore/MountFolder/BlockFace.csv")
+
+
+columns_to_drop = ["objectid","segkey",
+                "unitid", "unitid2",
+                "block_id","csm",
+                "load","zone",
+                "total_zones","rpz_zone",
+                "rpz_area","paidarea",
+                "start_time_wkd","end_time_wkd",
+                "start_time_sat","end_time_sat",
+                "primarydistrictcd","secondarydistrictcd",
+                "overrideyn","overridecomment",
+                "shape_length"]
+
+blockface=blockface.drop(*columns_to_drop)    
+
+blockface=blockface.withColumn('wkd_start1',udf_format_minstoHHMMSS('wkd_start1')) \
+                .withColumn('wkd_end1',udf_format_minstoHHMMSS('wkd_end1')) \
+                .withColumn('wkd_start2',udf_format_minstoHHMMSS('wkd_start2')) \
+                .withColumn('wkd_end2',udf_format_minstoHHMMSS('wkd_end2')) \
+                .withColumn('wkd_start3',udf_format_minstoHHMMSS('wkd_start3')) \
+                .withColumn('wkd_end3',udf_format_minstoHHMMSS('wkd_end3')) \
+                .withColumn('sat_start1',udf_format_minstoHHMMSS('sat_start1')) \
+                .withColumn('sat_end1',udf_format_minstoHHMMSS('sat_end1')) \
+                .withColumn('sat_start2',udf_format_minstoHHMMSS('sat_start2')) \
+                .withColumn('sat_end2',udf_format_minstoHHMMSS('sat_end2')) \
+                .withColumn('sat_start3',udf_format_minstoHHMMSS('sat_start3')) \
+                .withColumn('sat_end3',udf_format_minstoHHMMSS('sat_end3'))
+

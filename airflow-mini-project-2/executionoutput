@@ -1,0 +1,85 @@
+(base) C:\airflow-mini-project-2>python log_analyzer.py C:\\airflowlogs\\marketvol\\
+Error metrics for task 'connect' on date: 2021-02-26T031909.106097+0000
+The total number of errors :0
+----------------------------------------------------------------------------------------
+Error metrics for task 'connect' on date: 2021-02-28T180000+0000
+The total number of errors :0
+----------------------------------------------------------------------------------------
+Error metrics for task 'connect' on date: 2021-03-01T180000+0000
+The total number of errors :0
+----------------------------------------------------------------------------------------
+Error metrics for task 'connect' on date: 2021-03-02T180000+0000
+The total number of errors :0
+----------------------------------------------------------------------------------------
+Error metrics for task 'create_data_directory' on date: 2021-02-26T031909.106097+0000
+The total number of errors :0
+----------------------------------------------------------------------------------------
+Error metrics for task 'create_data_directory' on date: 2021-02-28T180000+0000
+The total number of errors :1
+Here are all the errors:
+[2021-03-04 01:40:18,623] {{models.py:1760}} ERROR - Bash command failed
+
+----------------------------------------------------------------------------------------
+Error metrics for task 'create_data_directory' on date: 2021-03-01T180000+0000
+The total number of errors :1
+Here are all the errors:
+[2021-03-04 01:40:18,644] {{models.py:1760}} ERROR - Bash command failed
+
+----------------------------------------------------------------------------------------
+Error metrics for task 'create_data_directory' on date: 2021-03-02T180000+0000
+The total number of errors :0
+----------------------------------------------------------------------------------------
+Error metrics for task 'download_apple_stock' on date: 2021-02-26T031909.106097+0000
+The total number of errors :0
+----------------------------------------------------------------------------------------
+Error metrics for task 'download_apple_stock' on date: 2021-02-28T180000+0000
+The total number of errors :0
+----------------------------------------------------------------------------------------
+Error metrics for task 'download_apple_stock' on date: 2021-03-01T180000+0000
+The total number of errors :0
+----------------------------------------------------------------------------------------
+Error metrics for task 'download_tsla_stock' on date: 2021-02-26T031909.106097+0000
+The total number of errors :0
+----------------------------------------------------------------------------------------
+Error metrics for task 'download_tsla_stock' on date: 2021-02-28T180000+0000
+The total number of errors :0
+----------------------------------------------------------------------------------------
+Error metrics for task 'download_tsla_stock' on date: 2021-03-01T180000+0000
+The total number of errors :0
+----------------------------------------------------------------------------------------
+Error metrics for task 'execute_query_on_data' on date: 2021-02-26T031909.106097+0000
+The total number of errors :0
+----------------------------------------------------------------------------------------
+Error metrics for task 'execute_query_on_data' on date: 2021-02-28T180000+0000
+The total number of errors :0
+----------------------------------------------------------------------------------------
+Error metrics for task 'execute_query_on_data' on date: 2021-03-01T180000+0000
+The total number of errors :0
+----------------------------------------------------------------------------------------
+Error metrics for task 'execute_query_on_data' on date: 2021-03-02T180000+0000
+The total number of errors :0
+----------------------------------------------------------------------------------------
+Error metrics for task 'move_apple_data_to_diff_location' on date: 2021-02-26T031909.106097+0000
+The total number of errors :0
+----------------------------------------------------------------------------------------
+Error metrics for task 'move_apple_data_to_diff_location' on date: 2021-02-28T180000+0000
+The total number of errors :0
+----------------------------------------------------------------------------------------
+Error metrics for task 'move_apple_data_to_diff_location' on date: 2021-03-01T180000+0000
+The total number of errors :0
+----------------------------------------------------------------------------------------
+Error metrics for task 'move_apple_data_to_diff_location' on date: 2021-03-02T180000+0000
+The total number of errors :0
+----------------------------------------------------------------------------------------
+Error metrics for task 'move_tsla_data_to_diff_location' on date: 2021-02-26T031909.106097+0000
+The total number of errors :0
+----------------------------------------------------------------------------------------
+Error metrics for task 'move_tsla_data_to_diff_location' on date: 2021-02-28T180000+0000
+The total number of errors :0
+----------------------------------------------------------------------------------------
+Error metrics for task 'move_tsla_data_to_diff_location' on date: 2021-03-01T180000+0000
+The total number of errors :0
+----------------------------------------------------------------------------------------
+Error metrics for task 'move_tsla_data_to_diff_location' on date: 2021-03-02T180000+0000
+The total number of errors :0
+----------------------------------------------------------------------------------------
