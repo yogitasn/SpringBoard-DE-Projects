@@ -23,6 +23,6 @@ This repository contains my solutions to the course "Springboard Data Engineerin
 | 15 |**[Step 2 - Data Ingestion](Step%202%20-%20Data%20Ingestion)** | Solution for the Guided Capstone Data Ingestion Mini Project | :heavy_check_mark:
 | 16 |**[Spark Mini Project](Spark%20Mini%20Project)** | Solution for the Spark Mini Project | :heavy_check_mark:
 | 17 |**[Spark Optimization Mini Project](Spark%20Optimization%20Mini%20Project)** | Solution for the Spark Optimization Mini Project | :heavy_check_mark:
-| 18 |**[Step 6 - Scale Your Prototype](Step%206%20Scale%20Your%20Prototype)** | Solution for Step 6 Scale Your Prototype for Open Ended Project | :heavy_check_mark:
+| 18 |**[Step 6 - Scale Your Prototype](Step%206%20-%20Scale%20Your%20Prototype)** | Solution for Step 6 Scale Your Prototype for Open Ended Project | :heavy_check_mark:
 | 19 |**[airflow-mini-project](airflow-mini-project)** | Solution for Airflow Mini Project: DAG | :heavy_check_mark:
 | 20 |**[airflow-mini-project-2](airflow-mini-project-2)** | Solution for Airflow Mini Project Log Analyzer | :heavy_check_mark:
