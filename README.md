@@ -26,3 +26,5 @@ This repository contains my solutions to the course "Springboard Data Engineerin
 | 18 |**[Step 6 - Scale Your Prototype](Step%206%20-%20Scale%20Your%20Prototype)** | Solution for Step 6 Scale Your Prototype for Open Ended Project | :heavy_check_mark:
 | 19 |**[airflow-mini-project](airflow-mini-project)** | Solution for Airflow Mini Project: DAG | :heavy_check_mark:
 | 20 |**[airflow-mini-project-2](airflow-mini-project-2)** | Solution for Airflow Mini Project Log Analyzer | :heavy_check_mark:
+| 21 |**[Step 4 - Analytical ETL](Step%20%4%20-%20Analytical%20ETL)** | Solution for Guided Capstone Step 4 Analytical ETL | :heavy_check_mark:
+| 22 |**[Step 7 - Create Deployment Architecture](Step%20%7%20-%20Create%20Deployment%20Architecture)** | Solution for Open Ended Capstone Deployment Architecture | :heavy_check_mark:
