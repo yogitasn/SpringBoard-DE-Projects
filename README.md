@@ -28,3 +28,4 @@ This repository contains my solutions to the course "Springboard Data Engineerin
 | 20 |**[airflow-mini-project-2](airflow-mini-project-2)** | Solution for Airflow Mini Project Log Analyzer | :heavy_check_mark:
 | 21 |**[Step 4 - Analytical ETL](Step%20%4%20-%20Analytical%20ETL)** | Solution for Guided Capstone Step 4 Analytical ETL | :heavy_check_mark:
 | 22 |**[Step 7 - Create Deployment Architecture](Step%20%7%20-%20Create%20Deployment%20Architecture)** | Solution for Open Ended Capstone Deployment Architecture | :heavy_check_mark:
+| 23 |**[Step 8 - Deploy your code for Testing](Step%20%8%20-%20Deploy%20your%20code%20for%20Testing)** | Solution for Open Ended Capstone Step 8 Deploy your code for Testing | :heavy_check_mark:
